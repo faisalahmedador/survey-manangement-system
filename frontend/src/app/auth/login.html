@@ -1,0 +1,65 @@
+<section class="login-page">
+  <div class="login-page-container">
+    <div class="login-wrap">
+      <div class="login-form">
+
+        <!--Loading spinner-->
+        @if (loading()) {
+        <div class="loading-wrapper">
+          <p-progressSpinner class="full-spinner" strokeWidth="3"></p-progressSpinner>
+        </div>
+        }
+        <div class="text-center">
+          <div class="logo">
+            <h1>Survey</h1>
+            <h4>Management System</h4>
+          </div>
+        </div>
+        <div>
+          <form class="client-form" [formGroup]="loginForm" (ngSubmit)="performLogin()">
+            @if (error()) {
+              <p class="alert alert-danger mb-2">
+                {{error()}}
+              </p>
+            }
+            <div class="mb-3">
+              <p-inputgroup>
+                <p-inputgroup-addon>
+                  <i class="pi pi-user"></i>
+                </p-inputgroup-addon>
+                <input
+                  pInputText
+                  type="text"
+                  class="form-control"
+                  [ngClass]="{ 'is-invalid': submitted && f['email'] && f['email']!.errors}"
+                  formControlName="email"
+                  placeholder="email"
+                  aria-label="email"
+                  required>
+              </p-inputgroup>
+            </div>
+            <div class="mb-3">
+              <p-inputgroup>
+                <p-inputgroup-addon>
+                  <i class="pi pi-lock"></i>
+                </p-inputgroup-addon>
+                <input
+                  pInputText
+                  type="password"
+                  class="form-control"
+                  formControlName="password"
+                  [ngClass]="{ 'is-invalid': submitted && f['password'] && f['password']!.errors}"
+                  placeholder="password"
+                  aria-label="Password"
+                  autocomplete="off">
+              </p-inputgroup>
+            </div>
+            <div class="form-group mb-3">
+              <p-button type="submit" size="large" styleClass="w-full login-font" label="Login"></p-button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

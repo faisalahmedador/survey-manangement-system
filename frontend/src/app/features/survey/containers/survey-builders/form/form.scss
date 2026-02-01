@@ -1,0 +1,121 @@
+.survey-form {
+  .form-shell {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+  .form-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  .form-subtitle {
+    margin-top: 0.25rem;
+    color: var(--text-color-secondary);
+    font-size: 0.95rem;
+  }
+
+  .form-actions {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .form-section {
+    margin-top: 1rem;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+
+  .section-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+
+  .section-hint {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+  }
+
+  .field-label {
+    display: inline-block;
+    margin-bottom: 0.35rem;
+    font-weight: 600;
+  }
+
+  .field-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .field-card {
+    border: 1px solid #2b2b2b;
+    border-radius: 12px;
+    padding: 1rem;
+  }
+
+  .field-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .field-index {
+    font-weight: 600;
+    color: var(--text-color);
+  }
+
+  .options-block {
+    margin-top: 0.75rem;
+    padding-top: 0.75rem;
+    border-top: 1px dashed var(--surface-border);
+  }
+
+  .options-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .options-title {
+    font-weight: 600;
+  }
+
+  .options-hint {
+    color: var(--text-color-secondary);
+    font-size: 0.9rem;
+  }
+
+  .option-row {
+    padding: 0.75rem;
+    border: 1px solid var(--surface-border);
+    border-radius: 10px;
+    background: var(--surface-ground);
+    margin-bottom: 0.75rem;
+  }
+
+  .form-footer {
+    margin-top: 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+  }
+}

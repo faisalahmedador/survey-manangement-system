@@ -1,0 +1,28 @@
+.not-found {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: calc(100vh - 80px);
+
+  h1 {
+    margin: 0;
+    font-size: 150px;
+    line-height: 150px;
+    font-weight: bold;
+    color: #444;
+  }
+
+  .subtitle {
+    margin-top: 20px;
+    font-size: 30px;
+  }
+
+  p {
+    color: grey;
+  }
+
+  a {
+    font-weight: bold;
+  }
+}

@@ -1,0 +1,15 @@
+<app-layout-header (toggle)="toggleMenu()"></app-layout-header>
+<div class="flex justify-content-between">
+  <!-- Sidebar section -->
+  <div class="sidebar-container">
+    <p-panelMenu [multiple]="false" [model]="items()" [style]="{'width': '260px','border-radius':'0px'}">
+    </p-panelMenu>
+  </div>
+  <!-- Content -->
+  <div class="main-content" [ngClass]="{'active': displaySidebar(), 'passive': !displaySidebar() }">
+    <p-toast></p-toast>
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+

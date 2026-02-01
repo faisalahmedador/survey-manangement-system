@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+@use "app/styles/global";
+@use "app/styles/overwrite";
+//@import "app/styles/layout/_variables";
+//@import "app/styles/layout/_layout";
+
+.app-loading {
+  opacity: 0;
+  transition: opacity .8s ease-in-out;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 30%;
+  left: 0;
+  z-index: -1;
+}
+
+/* .loading screen is visible when app is not bootstrapped yet, my-app is empty */
+app-root:empty + .app-loading {
+  opacity: 1;
+  z-index: 100;
+}
+
+.dot-flashing {
+  position: relative;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #3e9ddd;
+  color: #3e9ddd;
+  animation: dotFlashing 1s infinite linear alternate;
+  animation-delay: .5s;
+}
+
+.dot-flashing::before, .dot-flashing::after {
+  content: '';
+  display: inline-block;
+  position: absolute;
+  top: 0;
+}
+
+.dot-flashing::before {
+  left: -15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #3e9ddd;
+  color: #3e9ddd;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 0s;
+}
+
+.dot-flashing::after {
+  left: 15px;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  background-color: #3e9ddd;
+  color: #3e9ddd;
+  animation: dotFlashing 1s infinite alternate;
+  animation-delay: 1s;
+}
+
+@keyframes dotFlashing {
+  0% {
+    background-color: #3e9ddd;
+  }
+  50%,
+  100% {
+    background-color: #3e9ddd4a;
+  }
+}
+
+.snippet {
+  position: relative;
+  background: #fff;
+  padding: 2rem 5%;
+  margin: 1.5rem 0;
+}
+
+.examples .snippet:before {
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 5px;
+  content: attr(data-title);
+  font-size: .75rem;
+  font-family: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  color: white;
+  background-color: rgb(255, 25, 100);
+  border-radius: .25rem 0 .25rem 0;
+}

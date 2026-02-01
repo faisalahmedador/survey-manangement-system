@@ -1,0 +1,85 @@
+@if (loader()) {
+  <p-progress-spinner></p-progress-spinner>
+} @else {
+  <article class="submission-form p-fluid">
+    <div class="form-shell">
+      <div class="form-header">
+        <div>
+          <h2 class="form-title m-0">Submission Form</h2>
+          <p class="form-subtitle m-0">Please answer the questions below.</p>
+        </div>
+      </div>
+
+      <div class="survey-card">
+        <h3 class="survey-title m-0">{{ surveyDetails().title }}</h3>
+        <p class="survey-description m-0">{{ surveyDetails().description }}</p>
+      </div>
+
+      <form [formGroup]="submissionForm" class="answers-form" (ngSubmit)="submitSurvey()">
+        <section formArrayName="answers" class="answers-list">
+          @for (field of answersArray.controls; track i; let i = $index) {
+            <div class="answer-card" [formGroupName]="i">
+              <div class="answer-header">
+                <label
+                  class="answer-label"
+                  [class.required]="answersArray.at(i).get('isRequired')?.value"
+                  [for]="'answer-' + i"
+                >
+                  {{ answersArray.at(i).get('label')?.value }}
+                </label>
+
+                @if (answersArray.at(i).get('isRequired')?.value) {
+                  <span class="required-badge">Required</span>
+                }
+              </div>
+
+              <div class="answer-control">
+                @if (answersArray.at(i).get('type')?.value === 'text') {
+                  <input
+                    [id]="'answer-' + i"
+                    type="text"
+                    pInputText
+                    formControlName="answer"
+                    placeholder="Write your answer"
+                  />
+                } @else if (answersArray.at(i).get('type')?.value === 'dropdown') {
+                  <p-select
+                    [inputId]="'answer-' + i"
+                    [options]="answersArray.at(i).get('fieldOptions')?.value"
+                    formControlName="answer"
+                    optionLabel="optionLabel"
+                    optionValue="optionValue"
+                    placeholder="Select an option"
+                  />
+                } @else if (answersArray.at(i).get('type')?.value === 'radio') {
+                  <div class="choice-list">
+                    @for (option of answersArray.at(i).get('fieldOptions')?.value; track option.id) {
+                      <label class="choice-item">
+                        <input type="radio" [value]="option.optionValue" formControlName="answer" />
+                        <span class="choice-text">{{ option.optionLabel }}</span>
+                      </label>
+                    }
+                  </div>
+                } @else if (answersArray.at(i).get('type')?.value === 'checkbox') {
+                  <div class="choice-list">
+                    @for (option of answersArray.at(i).get('fieldOptions')?.value; track option.id) {
+                      <label class="choice-item">
+                        <p-checkbox [binary]="true" [value]="option.optionValue" formControlName="answer" />
+                        <span class="choice-text">{{ option.optionLabel }}</span>
+                      </label>
+                    }
+                  </div>
+                }
+              </div>
+            </div>
+          }
+        </section>
+
+        <div class="form-footer">
+          <p-button type="submit" label="Submit" icon="pi pi-send" severity="primary" />
+          <p-button type="button" label="Cancel" icon="pi pi-times" severity="secondary" outlined="true" (click)="cancel()" />
+        </div>
+      </form>
+    </div>
+  </article>
+}

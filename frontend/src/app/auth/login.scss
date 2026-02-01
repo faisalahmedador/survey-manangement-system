@@ -1,0 +1,110 @@
+.login-page {
+
+  .login-wrap {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .forgot-pwd {
+      display: flex;
+      justify-content: space-between;
+
+      span {
+        font-weight: 800;
+        color: #9e9e9ecc;
+        display: block;
+      }
+    }
+  }
+
+  .logo {
+    img {
+      margin: 0 auto;
+      max-width: 100%;
+    }
+  }
+
+  .login-form {
+    position: relative;
+    width: 350px;
+    min-height: 400px;
+    padding: 60px;
+    box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 9px 26px 0 rgba(0, 0, 0, 0.19);
+    background: white;
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .login-btn {
+      svg {
+        margin-right: 5px;
+      }
+    }
+
+    //client form
+
+  }
+
+  //admin form
+
+
+  //Loading spinner
+  .loading-wrapper {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    background: rgba(34, 110, 208, 0.5);
+    z-index: 100;
+    left: 0;
+  }
+}
+
+.logo {
+  text-transform: uppercase;
+  margin-bottom: 25px;
+
+  h1, h4 {
+    margin: 0;
+    padding: 0;
+  }
+
+  h1 {
+    font-size: 48px;
+    color: #183344;
+    line-height: 40px;
+  }
+
+  h4 {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    color: #03366d;
+  }
+}
+
+.mb-3 {
+  margin-bottom: 24px;
+}
+
+.alert.alert-danger {
+  width: 100%;
+  margin-top: 2px;
+}
+
+
+.display-none {
+  display: none !important;
+}
+
+.link-button {
+  background: none;
+  border: none;
+  color: #007bff;
+  text-decoration: underline;
+  cursor: pointer;
+  padding: 0;
+  font: inherit;
+}

@@ -1,0 +1,222 @@
+//.sidebar {
+//  position: fixed;
+//  height: calc(100vh - 45px);
+//  min-height: 300px;
+//  width: 240px;
+//  box-shadow: 0 0 4px 0 rgba(0, 0, 0, .2);
+//  background-color: #f9f9f9;
+//  border: 1px solid #c8c8c8;
+//  border-top: none;
+//
+//  ::ng-deep .fa {
+//    padding: 0px 8px;
+//    font-size: 18px;
+//  }
+//
+//  ::ng-deep .ui-panelmenu-panel {
+//    margin-top: 0;
+//
+//    .badge-en {
+//      .ui-menuitem-text::after {
+//        content: "Beta";
+//        margin-left: 5px;
+//        background: #268fd6;
+//        color: #ffffff;
+//        font-size: 11px;
+//        font-weight: 700;
+//        padding: 1px 5px;
+//        border-radius: 3px;
+//      }
+//    }
+//
+//    .badge-ch {
+//      .ui-menuitem-text::after {
+//        content: "测试版本";
+//        margin-left: 5px;
+//        background: #268fd6;
+//        color: #ffffff;
+//        font-size: 11px;
+//        font-weight: 700;
+//        padding: 1px 5px;
+//        border-radius: 3px;
+//      }
+//    }
+//
+//    .ui-menuitem-link {
+//      box-shadow: none !important;
+//      text-transform: capitalize;
+//      padding-left: 33px !important;
+//
+//      &.ui-state-active {
+//      }
+//    }
+//
+//    .ui-panelmenu-header-link {
+//      text-transform: uppercase;
+//    }
+//
+//    a:hover {
+//      background-color: #f9f9f9 !important;
+//      color: #007ad9 !important;
+//      border: 1px solid #e8e8e8;
+//      border-radius: 0;
+//
+//      svg {
+//        color: #007ad9 !important;
+//      }
+//    }
+//
+//    .ui-panelmenu-header {
+//      margin: 0;
+//
+//      & > a:focus {
+//        box-shadow: none;
+//      }
+//
+//      .ui-menuitem-icon {
+//        font-size: 18px;
+//      }
+//
+//      &.ui-state-active > a {
+//        color: #007ad9;
+//        border: 1px solid #e6e6e6;
+//        border-radius: 0;
+//
+//        &:hover {
+//          outline: 0 none;
+//          border: none;
+//          background-color: #ffffff;
+//          color: #007ad9;
+//
+//          .ui-panelmenu-icon {
+//            color: inherit;
+//          }
+//        }
+//
+//        .ui-panelmenu-icon {
+//          color: #007ad9;
+//
+//          &:hover {
+//            color: #007ad9;
+//          }
+//        }
+//      }
+//
+//      > a {
+//        border: none;
+//        background-color: inherit;
+//
+//        span {
+//          font-size: 12px;
+//        }
+//
+//        .ui-panelmenu-icon {
+//          float: right;
+//        }
+//      }
+//
+//    }
+//
+//    .ui-panelmenu-content {
+//      border: none;
+//      background-color: inherit;
+//
+//      .ui-menuitem .ui-menuitem-link:hover {
+//        background-color: #ffffff;
+//
+//        span {
+//          color: #007ad9;
+//        }
+//      }
+//    }
+//
+//    //Active class for list items
+//    .ui-state-active {
+//      color: #007ad9 !important;
+//      background-color: #ffffff;
+//    }
+//
+//    .ui-menuitem-text {
+//      margin-left: 0;
+//    }
+//
+//  }
+//
+//  &.passive {
+//    width: 45px;
+//  }
+//
+//  &.active {
+//    overflow-y: auto;
+//  }
+//}
+//
+//.content {
+//  overflow-x: hidden;
+//  overflow-y: auto;
+//  position: relative;
+//  padding: 25px;
+//  width: calc(100% - 240px);
+//  min-width: 450px;
+//  margin-left: 240px;
+//  height: calc(100vh - 45px);
+//
+//  &.passive {
+//    width: calc(100% - 45px);
+//    min-width: auto;
+//    margin-left: 45px;
+//  }
+//
+//  &.mobile {
+//    width: 100%;
+//    margin-left: 0;
+//  }
+//}
+
+//::ng-deep p-megaMenu {
+//  .ui-megamenu {
+//    border: none;
+//  }
+//
+//  .ui-megamenu-vertical {
+//    width: 100%;
+//
+//    li.ui-menuitem-active {
+//      span.ui-menuitem-icon {
+//        color: #007ad9 !important;
+//      }
+//    }
+//
+//    a {
+//      box-shadow: none !important;
+//
+//      span.ui-menuitem-icon {
+//        font-size: 1.50em;
+//      }
+//
+//      span.ui-submenu-icon {
+//        display: none;
+//      }
+//
+//      &:hover {
+//        span.ui-menuitem-icon {
+//          color: #007ad9 !important;
+//        }
+//      }
+//    }
+//
+//  }
+//
+//  .disableParentLink {
+//    pointer-events: none;
+//  }
+//}
+
+//.card {
+//  background: #ffffff;
+//  padding: 2rem;
+//  margin-bottom: 2rem;
+//  border-radius: var(--content-border-radius);
+//}
+
+

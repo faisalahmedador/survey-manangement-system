@@ -1,0 +1,135 @@
+<form [formGroup]="surveyBuilderForm" class="survey-form p-fluid" (ngSubmit)="saveSurvey()">
+  <div class="form-shell">
+    <div class="form-header">
+      <div>
+        <h2 class="form-title m-0">Survey Builder</h2>
+        <p class="form-subtitle m-0">Create a survey and configure its fields.</p>
+      </div>
+
+      <div class="form-actions">
+        <p-button
+          type="button"
+          label="Add Field"
+          icon="pi pi-plus"
+          severity="primary"
+          (click)="createNewField()"
+        />
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="grid">
+        <div class="col-12 flex flex-column">
+          <label class="field-label required" for="title">Title</label>
+          <input id="title" type="text" pInputText formControlName="title" placeholder="e.g. Employee Satisfaction Survey" />
+        </div>
+
+        <div class="col-12 flex flex-column">
+          <label class="field-label required" for="description">Description</label>
+          <input id="description" type="text" pInputText formControlName="description" placeholder="Short description..." />
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      @if ( fieldsArray.length > 0) {
+        <div class="section-header">
+          <h3 class="section-title m-0">Fields</h3>
+          <span class="section-hint">Add one or more questions to this survey.</span>
+        </div>
+      }
+
+      <div formArrayName="fields" class="field-list">
+        @for (field of fieldsArray.controls; track i; let i = $index) {
+          <div class="field-card" [formGroupName]="i">
+            <div class="field-card-header">
+              <div class="field-card-title">
+                <span class="field-index">Field {{ i + 1 }}</span>
+              </div>
+
+                <div class="field-card-actions">
+                  <p-button
+                    type="button"
+                    label="Add Option"
+                    icon="pi pi-plus"
+                    severity="secondary"
+                    outlined="true"
+                    (click)="addFieldOption(i)"
+                    [disabled]="fieldsArray.at(i).get('type')?.value === 'text'"
+                  />
+                </div>
+            </div>
+
+            <div class="grid">
+              <div class="col-12 flex flex-column">
+                <label class="field-label required" [for]="'label-' + i">Label</label>
+                <input [id]="'label-' + i" type="text" pInputText formControlName="label" placeholder="e.g. Department" />
+              </div>
+
+              <div class="col-12 flex flex-column">
+                <label class="field-label required" [for]="'type-' + i">Type</label>
+                <p-select
+                  [inputId]="'type-' + i"
+                  [options]="fieldTypes"
+                  optionLabel="label"
+                  optionValue="value"
+                  placeholder="Select type"
+                  formControlName="type"
+                />
+              </div>
+
+              <div class="col-12 md:col-2 flex align-items-end">
+                <div class="flex align-items-center gap-2">
+                  <p-checkbox [binary]="true" inputId="{{ 'required-' + i }}" formControlName="isRequired" />
+                  <label class="field-label m-0" [for]="'required-' + i">Required</label>
+                </div>
+              </div>
+            </div>
+
+            <div class="options-block" formArrayName="fieldOptions">
+              @if (getFieldOptionsArray(i).length > 0) {
+                <div class="options-header">
+                  <span class="options-title">Options</span>
+                  <span class="options-hint">Use for dropdown/radio/checkbox fields.</span>
+                </div>
+              }
+
+              @for (fieldOptionCtrl of getFieldOptionsArray(i).controls; track j; let j = $index) {
+                <div class="option-row" [formGroupName]="j">
+                  <div class="grid">
+                    <div class="col-12 flex flex-column">
+                      <label class="field-label required" [for]="'opt-label-' + i + '-' + j">Option Label</label>
+                      <input
+                        [id]="'opt-label-' + i + '-' + j"
+                        type="text"
+                        pInputText
+                        formControlName="optionLabel"
+                        placeholder="e.g. Finance"
+                      />
+                    </div>
+
+                    <div class="col-12 flex flex-column">
+                      <label class="field-label required" [for]="'opt-value-' + i + '-' + j">Option Value</label>
+                      <input
+                        [id]="'opt-value-' + i + '-' + j"
+                        type="text"
+                        pInputText
+                        formControlName="optionValue"
+                        placeholder="e.g. finance"
+                      />
+                    </div>
+                  </div>
+                </div>
+              }
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="form-footer">
+      <p-button type="submit" [label]="id() ? 'Update Survey' :  'Save Survey'" icon="pi pi-save" severity="primary" />
+      <p-button type="button" label="Cancel" icon="pi pi-times" severity="secondary" outlined="true" (click)="cancel()" />
+    </div>
+  </div>
+</form>

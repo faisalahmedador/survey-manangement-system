@@ -1,0 +1,205 @@
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 45px;
+  background-color: #3498DB;
+  color: #ffffff;
+  line-height: 44px;
+  font-size: 14px;
+
+  position: relative;
+  z-index: 1;
+
+  a {
+    color: #ffffff;
+    font-size: 21px;
+  }
+
+  .header-logo {
+    font-size: 28px;
+    min-width: 350px;
+    text-align: left;
+    padding-left: 10px;
+
+  }
+
+  .header-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-right: 18px;
+
+    .left-header {
+      button.toggle-btn {
+        background-color: transparent;
+        border: none;
+
+        &:enabled:focus {
+          box-shadow: none;
+        }
+      }
+    }
+
+    .right-menu {
+      //::ng-deep .ui-button {
+      //  background: none;
+      //  font-size: 15px;
+      //  border: none;
+      //  color: #efefef;
+      //
+      //  &.ui-corner-all {
+      //    border-radius: 0;
+      //  }
+      //
+      //  &:enabled:focus {
+      //    box-shadow: none;
+      //    background-color: #56a2e2 !important;
+      //  }
+      //
+      //  &:hover {
+      //    background-color: #56a2e2 !important;
+      //  }
+      //
+      //  &.ui-button-text-icon-left .ui-button-text {
+      //    padding: 14px 12px 10px 31px;
+      //  }
+      //
+      //  .ui-button-icon-left {
+      //    padding-top: 2px;
+      //  }
+      //}
+    }
+  }
+
+}
+
+.left-header {
+  display: flex;
+
+  h1.company-title {
+    margin-left: 5px;
+    margin-top: 1px;
+    font-weight: normal;
+    margin-bottom: 0;
+    font-size: 18px;
+    text-transform: uppercase;
+  }
+}
+
+
+//::ng-deep.ui-menu {
+//  left: auto !important;
+//  right: 20px !important;
+//
+//  .ui-menuitem-link, .ui-submenu-header {
+//    width: 100%;
+//    display: flex;
+//    align-items: center;
+//    justify-content: center;
+//    word-break: break-word;
+//
+//    svg {
+//      color: gray !important;
+//    }
+//  }
+//}
+
+//::ng-deep p-dropdown.language-dropdown {
+//  line-height: 28px;
+//  margin-right: 4px;
+//
+//  .ui-dropdown {
+//    min-width: auto;
+//    width: 90px;
+//    padding: 0 4px;
+//
+//    .ui-dropdown-label {
+//      padding: 0;
+//      font-size: 12px;
+//    }
+//
+//    .ui-dropdown-label-container {
+//      line-height: 20px;
+//    }
+//
+//    .ui-dropdown-trigger {
+//      font-size: 12px;
+//    }
+//  }
+//}
+
+.custom-menu {
+  display: inline-block;
+
+  .menu-content {
+    position: absolute;
+    width: 340px;
+    z-index: 1000;
+    font-size: 14px;
+    color: #2b2b2b;
+    right: 12px;
+    top: 35px;
+    border: 1px solid #c8c8c8;
+    background-color: #ffffff;
+    box-shadow: 0 0px 6px 0 rgb(0 0 0 / 16%);
+
+    span {
+      margin: 0;
+      line-height: 20px;
+      display: block;
+      padding: 8px 11px;
+      color: #2b2b2b;
+
+      .item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      a {
+        color: #2b2b2b;
+        font-size: 14px;
+        cursor: pointer;
+      }&.current {
+        font-weight: bold;
+        color: #007ad9;
+        }
+
+      a.bookmark {
+        i {
+          font-size: 30px;
+          color: #7474746b;
+          vertical-align: middle;
+        }
+
+        &.favourite {
+          i {
+            color: #2b2b2b;
+          }
+        }
+
+        &:hover {
+          i {
+            color: #454545b0;
+          }
+        }
+      }
+
+      &.header {
+        text-align: center;
+        font-weight: bold;
+        background-color: #f4f4f4;
+      }
+
+      &:hover {
+        background-color: #eaeaea;
+      }
+    }
+  }
+}
+
+.pl-2{
+  padding-left: 10px;
+}

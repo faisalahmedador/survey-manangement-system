@@ -1,0 +1,28 @@
+<h1 class="mb-2">Survey List</h1>
+<!--<div class="table-wrapper relative">-->
+<!--  <div class="search-absolute">-->
+
+<!--    <div class="flex align-items-center gap-2">-->
+<!--      <p-input-group class="input-group-wrapper">-->
+<!--        <input type="text"-->
+<!--               pInputText-->
+<!--               [(ngModel)]="searchText"-->
+<!--               class="w-25rem"-->
+<!--               placeholder="Search by title"-->
+<!--               (input)="onEmptyInput()"-->
+<!--               (keyup.enter)="search()">-->
+<!--        <p-inputgroup-addon>-->
+<!--          <p-button type="button" label="search" severity="primary" size="small"-->
+<!--                    (click)="search()"></p-button>-->
+<!--        </p-inputgroup-addon>-->
+<!--      </p-input-group>-->
+
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+
+<app-data-table [cols]="cols()" [data]="data()" [submitBtn]="true" [route]="route"
+                [totalRecords]="totalRecords()" (onPageSelect)="getSurveyList($event)"
+                [loading]="loading()"></app-data-table>
+

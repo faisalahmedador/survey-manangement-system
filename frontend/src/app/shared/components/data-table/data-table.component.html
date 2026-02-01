@@ -1,0 +1,72 @@
+<div class="table-wrapper">
+  @if (addBtn() || editBtn() || submitBtn()) {
+    <div class="flex align-items-center gap-2">
+      @if (addBtn()) {
+        <p-button type="button" label="Add" severity="primary" size="small" icon="pi pi-plus"
+                  (click)="add()"></p-button>
+      }
+      @if (editBtn()) {
+        <p-button type="button" label="Edit" severity="success" size="small"
+                  (click)="viewDetails()"
+                  icon="pi pi-pencil"></p-button>
+      }
+
+      @if (submitBtn()) {
+        <p-button type="button" label="Submit Response" severity="success" size="small"
+                  (click)="submitSurvey()"
+                  icon="pi pi-send"></p-button>
+      }
+    </div>
+  }
+  <div class="pt-2">
+    <p-table [columns]="cols()"
+             [value]="data()"
+             [loading]="loading()"
+             selectionMode="single"
+             stripedRows="true"
+             class="main-list-table"
+             [rows]="rows"
+             [sortOrder]="-1"
+             [totalRecords]="totalRecords()"
+             [paginator]="true"
+             [rowsPerPageOptions]="rowsPerPageOptions"
+             [scrollable]="true" [scrollHeight]="scrollHeight" [lazy]="true"
+             (onLazyLoad)="loadPageLazy($event)"
+             [selection]="selectedItem()"
+             (selectionChange)="selectedItem.set($event)">
+      <ng-template pTemplate="header" let-columns>
+        <tr>
+          @for (col of columns; track col.field) {
+            <th [style.width]="col.width" [pSortableColumn]="col.sortable?col.field:null">
+              {{col.header}}
+              @if (col.sortable) {
+                <p-sortIcon [field]="col.field"></p-sortIcon>
+              }
+            </th>
+          }
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+          @for (col of columns; track col.field) {
+            <td>
+              {{rowData[col.field]}}
+            </td>
+          }
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="emptymessage" let-columns>
+        <tr>
+          <td [attr.colspan]="columns.length">
+            No records found
+          </td>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="paginatorright" let-state>
+        {{(state.page * state.rows) + 1}}
+        - {{state.totalRecords < state.rows * (state.page + 1) ? state.totalRecords : state.rows * (state.page + 1)}}
+        {{ 'of' }} {{state.totalRecords}}
+      </ng-template>
+    </p-table>
+  </div>
+</div>

@@ -1,0 +1,333 @@
+$brand-color: #0277bd;
+$background-color: #303030;
+$border-color: rgba(34, 36, 38, 0.14);
+$base-font-size: 14px;
+
+html {
+  font-size: $base-font-size;
+}
+
+body {
+  box-sizing: border-box;
+  margin: 0;
+  //background-color: #e0eaf4;
+  font-family: "Open Sans", sans-serif;
+}
+
+body a {
+  color: #007ad9;
+  text-decoration: none;
+}
+
+h1, h2, h3, h4, h5 {
+  margin: 10px 0;
+}
+
+.mt-0 {
+  margin-top: 0;
+}
+
+.mr-10 {
+  margin-right: 60px;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/*style*/
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+h1.l-title {
+  display: block;
+  font-size: 18px;
+  width: 100%;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+::placeholder {
+  font-size: 14px;
+}
+
+
+.language-container {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+
+.main-content {
+  background: #ffffff;
+  position: relative;
+  padding: 10px;
+  width: calc(100% - 240px);
+  min-width: 450px;
+  height: calc(100vh - 45px);
+  z-index: 0;
+  &.passive {
+    width: calc(100% - 45px);
+    min-width: auto;
+  }
+  &.no-scroll {
+    overflow: hidden;
+  }
+  &.show-scroll {
+    overflow: auto;
+  }
+}
+
+.sidebar-container {
+  height: calc(100vh - 45px);
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-right: 1px solid #ddd;
+  box-sizing: border-box;
+  background: #fff;
+  //padding-top: 10px;
+}
+
+.inputgroup {
+  margin-bottom: 15px;
+
+  label {
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+  }
+}
+
+.dropdown-group {
+  display: flex;
+  flex-direction: column;
+  label {
+    margin-bottom: 2px;
+    display: block;
+  }
+
+  input {
+    width: 100%;
+  }
+
+
+
+}
+
+.alert.alert-danger {
+  text-align: center;
+  display: block;
+  background: rgba(212, 59, 59, 0.10);;
+  border: 1px solid #f5dada;
+  color: #d01414;
+  padding: 4px;
+  font-size: 12px;
+  width: 80%;
+
+  ul {
+    text-align: left;
+  }
+}
+
+
+table.definition-table {
+  border: 1px solid $border-color;
+  border-spacing: 0;
+  font-size: 13px;
+  font-weight: 400;
+
+  tr {
+    th {
+      text-align: left;
+      padding: 10px 8px;
+      width: 20%;
+      background-color: rgba(0, 0, 0, 0.03);
+      border-bottom: 1px solid $border-color;
+      border-right: 1px solid $border-color;
+    }
+
+    td {
+      width: 80%;
+      padding: 10px 8px;
+      border-bottom: 1px solid $border-color;
+    }
+
+    &:last-child {
+      th {
+        border-bottom: none;
+      }
+
+      td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  .list-edit {
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 12px;
+
+    a:hover {
+      color: #3497db;
+    }
+  }
+
+  input {
+    border: 1px solid $border-color;
+    width: 100%;
+  }
+
+  .p-inputtext {
+    padding: 8px 0.429em;
+    font-size: 13px;
+
+    &:hover {
+      border-color: #0f0f1026 !important;
+    }
+  }
+
+  .p-datepicker {
+    display: flex;
+
+    .ui-button {
+      padding: 2px;
+    }
+  }
+
+  .p-select, .p-multiselect {
+    width: 100%;
+    border: 1px solid $border-color;
+    font-size: 13px;
+
+    &:hover {
+      border-color: #0f0f1026 !important;
+    }
+
+    .p-select-panel {
+      min-width: 12em;
+    }
+  }
+
+  .p-multiselect {
+    .p-multiselect-label {
+      display: flex;
+      flex-wrap: wrap;
+
+      .p-multiselected-item-token {
+        margin-right: 6px;
+        background-color: #f7f7f7;
+        padding: 1px 5px;
+        border: 1px solid #d2d2d2;
+        margin-bottom: 2px;
+      }
+    }
+
+  }
+
+  .p-multiselect:not(.p-state-disabled):hover {
+    border-color: $border-color;
+  }
+
+  .p-multiselect-panel .p-multiselect-items .p-multiselect-item.p-state-highlight {
+    background-color: #eaeaea;
+    color: #2b2b2b;
+  }
+}
+
+/*loader*/
+.loader-wrapper {
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .p-progress-spinner-svg {
+    width: 70px;
+  }
+
+  @keyframes p-progress-spinner-color {
+    100%,
+    0% {
+      stroke: rgb(52, 152, 219);
+    }
+    90% {
+      stroke: rgb(52, 152, 219);
+    }
+  }
+}
+
+/* Safari fix for PrimeNG table loader */
+.p-datatable {
+  display: block;
+}
+
+/* Common auth card styles for unified look across settings screens */
+.auth-card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  padding: 20px 24px;
+  max-width: 36rem;
+  width: 100%;
+  margin: 24px auto;
+}
+
+.auth-card--wide {
+  max-width: 45rem;
+}
+
+.auth-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px;
+  color: #14468e; /* slate-700 */
+  background: #ffffff;
+  border: 1px solid  #14468e;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.back-link-btn .pi {
+  font-size: 0.9rem;
+}
+
+.input-group-wrapper {
+  display: flex !important;
+  align-items: center !important;
+}
+
+.input-group-wrapper input[pInputText] {
+  height: 2.2rem !important; /* Let it use the same height as the button */
+}
+
+.input-group-wrapper .p-button {
+  height: 2.2rem !important;
+}
+
+.required:after {
+  color: #e91224;
+  content: "*";
+  display: inline;
+  margin-left: 2px;
+}

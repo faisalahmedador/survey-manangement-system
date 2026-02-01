@@ -1,0 +1,18 @@
+<header>
+  <div class="header-logo">
+    <a routerLink="/">
+      <span>SURVEY MANAGEMENT</span>
+    </a>
+  </div>
+  <div class="header-menu">
+    <div class="card flex justify-content-end w-full">
+      <p-menu #menu [model]="userItems()" class="headery-menu" [popup]="true">
+        <ng-template #submenuheader let-item>
+          <span class="font-bold">{{ item.label }}</span>
+        </ng-template>
+      </p-menu>
+      <p-button (click)="menu.toggle($event)" icon="pi pi-user"/>
+    </div>
+  </div>
+</header>
+

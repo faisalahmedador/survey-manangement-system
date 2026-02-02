@@ -10,8 +10,8 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install
 
-# 👇 Install Nest CLI
-RUN npm install -g @nestjs/cli
+# 👇 Install angular CLI
+RUN npm install -g @angular/cli
 
 # Copy the rest of the application
 COPY . .

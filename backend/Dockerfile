@@ -7,8 +7,8 @@ WORKDIR /app
 # Copy package.json and package-lock.json
 COPY package*.json ./
 
-# 👇 Install angular cli globally
-RUN npm install -g @angular/cli
+# 👇 Install nest cli globally
+RUN npm install -g @nest/cli
 
 # Install dependencies
 RUN npm install

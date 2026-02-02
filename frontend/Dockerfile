@@ -1,5 +1,5 @@
-# Use Node.js as base image for building
-FROM node:22-alpine AS build
+# ---- BUILD STAGE (Debian, not Alpine) ----
+FROM node:20 AS build
 
 WORKDIR /app
 
@@ -7,7 +7,11 @@ ENV NODE_OPTIONS="--max-old-space-size=4096"
 
 COPY package*.json ./
 
-RUN npm ci --legacy-peer-deps
+# Clean npm cache first
+RUN npm cache clean --force
+
+# Install with stable flags
+RUN npm install --legacy-peer-deps --no-audit --no-fund
 
 COPY . .
 

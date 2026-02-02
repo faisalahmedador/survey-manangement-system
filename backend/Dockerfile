@@ -5,16 +5,15 @@ WORKDIR /app
 
 ENV NODE_OPTIONS="--max-old-space-size=2048"
 
-COPY package*.json ./
+# Copy package-related files first to leverage Docker's caching mechanism
+COPY package.json package-lock.json* ./
 
-# Clean npm cache first
-RUN npm cache clean --force
-
-RUN npm install --legacy-peer-deps --no-audit --no-fund
+# Install project dependencies using npm ci (ensures a clean, reproducible install)
+RUN --mount=type=cache,target=/root/.npm npm ci
 
 COPY . .
 
-RUN npx nest build
+RUN npm run build
 
 # Use a smaller image for production
 FROM node:20-alpine

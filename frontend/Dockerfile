@@ -1,21 +1,20 @@
 # ---- BUILD STAGE (Debian, not Alpine) ----
 FROM node:20 AS build
 
+# Set the working directory inside the container
 WORKDIR /app
 
-ENV NODE_OPTIONS="--max-old-space-size=4096"
+# Copy package-related files first to leverage Docker's caching mechanism
+COPY package.json package-lock.json* ./
 
-COPY package*.json ./
+# Install project dependencies using npm ci (ensures a clean, reproducible install)
+RUN --mount=type=cache,target=/root/.npm npm ci
 
-# Clean npm cache first
-RUN npm cache clean --force
-
-# Install with stable flags
-RUN npm install --legacy-peer-deps --no-audit --no-fund
-
+# Copy the rest of the application source code into the container
 COPY . .
 
-RUN npx ng build
+# Build the Angular application
+RUN npm run build
 
 # Use Nginx to serve the frontend
 FROM nginx:alpine

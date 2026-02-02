@@ -1,5 +1,5 @@
 # Use Node.js as base image for building
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 
 # Set working directory
 WORKDIR /app
@@ -9,9 +9,6 @@ COPY package*.json ./
 
 # Install dependencies
 RUN npm install
-
-# 👇 Install angular CLI
-RUN npm install -g @angular/cli
 
 # Copy the rest of the application
 COPY . .

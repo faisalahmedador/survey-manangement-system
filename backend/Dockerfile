@@ -1,14 +1,11 @@
 # Use Node.js as base image
-FROM node:20-alpine AS build
+FROM node:22-alpine AS build
 
 # Set working directory
 WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
-
-# 👇 Install nest cli globally
-RUN npm install -g @nest/cli
 
 # Install dependencies
 RUN npm install

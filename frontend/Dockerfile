@@ -1,20 +1,17 @@
 # Use Node.js as base image for building
 FROM node:22-alpine AS build
 
-# Set working directory
 WORKDIR /app
 
-# Copy package.json and package-lock.json
+ENV NODE_OPTIONS="--max-old-space-size=4096"
+
 COPY package*.json ./
 
-# Install dependencies
-RUN npm install
+RUN npm ci --legacy-peer-deps
 
-# Copy the rest of the application
 COPY . .
 
-# Build the application
-RUN npm run build
+RUN npx ng build
 
 # Use Nginx to serve the frontend
 FROM nginx:alpine
